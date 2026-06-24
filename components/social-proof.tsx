@@ -18,7 +18,7 @@ const recentDonors = [
   { name: 'Anonymous', amount: 1_500, time: '23/06/2026' },
   { name: 'Anonymous', amount: 20_000, time: '24/06/2026' },
   { name: 'Anonymous', amount: 20_000, time: '24/06/2026' },
-  { name: 'CHRISTIANA EDIRIN YAVUNADU', amount: 20_000, time: '24/06/2026' },
+  { name: 'CHRISTIANA EDIRIN YAVUNADU', amount: 10_000, time: '24/06/2026' },
   { name: 'ABOSEDE Lota Caldwell', amount: 300_000, time: '24/06/2026' },
 ]
 
