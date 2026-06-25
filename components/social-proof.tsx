@@ -20,6 +20,7 @@ const recentDonors = [
   { name: 'Anonymous', amount: 20_000, time: '24/06/2026' },
   { name: 'CHRISTIANA EDIRIN YAVUNADU', amount: 10_000, time: '24/06/2026' },
   { name: 'ABOSEDE Lota Caldwell', amount: 300_000, time: '24/06/2026' },
+  { name: 'Anonymous', amount: 50_000, time: '25/06/2026' },
 ]
 
 export function SocialProof() {
