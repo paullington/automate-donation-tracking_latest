@@ -21,9 +21,9 @@ export const campaign = {
 
   funds: {
     target: 45_000_000,
-    raised: 1_536_500,
-    donors: 15,
-    shares: 40,
+    raised: 2_976_000,
+    donors: 23,
+    shares: 52,
   },
 
   contact: {
