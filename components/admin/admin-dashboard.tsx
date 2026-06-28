@@ -1,7 +1,7 @@
 'use client'
 
 import { useRouter, useSearchParams } from 'next/navigation'
-import { Download, Eye, FileText, LogOut, Inbox, AlertCircle, CheckCircle, Clock, Copy } from 'lucide-react'
+import { Download, Eye, FileText, LogOut, Inbox, AlertCircle, CheckCircle, Clock, Copy, ArrowUp, ArrowDown } from 'lucide-react'
 import { useState } from 'react'
 
 export type AdminDonation = {
@@ -84,6 +84,7 @@ function TypeBadge({ transactionType }: { transactionType?: string | null }) {
 export function AdminDashboard({ donations }: { donations: AdminDonation[] }) {
   const router = useRouter()
   const [filterStatus, setFilterStatus] = useState<string | null>(null)
+  const [sortOrder, setSortOrder] = useState<'oldest' | 'newest'>('oldest')
 
   const logout = async () => {
     await fetch('/api/admin/logout', { method: 'POST' })
@@ -101,6 +102,13 @@ export function AdminDashboard({ donations }: { donations: AdminDonation[] }) {
       return true
     })
   }
+
+  // Sort donations by attachment date
+  const sortedDonations = [...filteredDonations].sort((a, b) => {
+    const dateA = new Date(a.createdAt).getTime()
+    const dateB = new Date(b.createdAt).getTime()
+    return sortOrder === 'oldest' ? dateA - dateB : dateB - dateA
+  })
 
   const fileUrl = (pathname: string, download: boolean) =>
     `/api/download?pathname=${encodeURIComponent(pathname)}${download ? '&download=1' : ''}`
@@ -128,8 +136,9 @@ export function AdminDashboard({ donations }: { donations: AdminDonation[] }) {
             </button>
           </div>
 
-          {/* Filters */}
-          <div className="flex gap-2 overflow-x-auto py-4 pb-2">
+          {/* Filters and Sort */}
+          <div className="flex items-center justify-between gap-4 border-b border-border py-4">
+            <div className="flex gap-2 overflow-x-auto pb-2">
             <button
               type="button"
               onClick={() => setFilterStatus(null)}
@@ -185,6 +194,31 @@ export function AdminDashboard({ donations }: { donations: AdminDonation[] }) {
             >
               Non-Transactions ({donations.filter(d => d.transactionType === 'not_transaction').length})
             </button>
+            </div>
+            <div className="flex gap-2 whitespace-nowrap">
+              <button
+                type="button"
+                onClick={() => setSortOrder('oldest')}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                  sortOrder === 'oldest'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'border border-border bg-background text-foreground hover:bg-muted'
+                }`}
+              >
+                <ArrowUp className="size-4" /> Oldest
+              </button>
+              <button
+                type="button"
+                onClick={() => setSortOrder('newest')}
+                className={`flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-semibold transition-colors ${
+                  sortOrder === 'newest'
+                    ? 'bg-primary text-primary-foreground'
+                    : 'border border-border bg-background text-foreground hover:bg-muted'
+                }`}
+              >
+                <ArrowDown className="size-4" /> Newest
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -207,6 +241,7 @@ export function AdminDashboard({ donations }: { donations: AdminDonation[] }) {
             <table className="w-full text-left text-sm">
               <thead className="border-b border-border bg-muted/50 text-muted-foreground">
                 <tr>
+                  <th className="px-4 py-3 font-semibold w-12 text-center">#</th>
                   <th className="px-4 py-3 font-semibold">Date</th>
                   <th className="px-4 py-3 font-semibold">Donor</th>
                   <th className="px-4 py-3 font-semibold">Amount</th>
@@ -218,11 +253,14 @@ export function AdminDashboard({ donations }: { donations: AdminDonation[] }) {
                 </tr>
               </thead>
               <tbody>
-                {filteredDonations.map((d) => (
+                {sortedDonations.map((d, index) => (
                   <tr
                     key={d.id}
                     className="border-b border-border last:border-0 hover:bg-muted/30"
                   >
+                    <td className="whitespace-nowrap px-4 py-3 text-center font-medium text-card-foreground">
+                      {index + 1}
+                    </td>
                     <td className="whitespace-nowrap px-4 py-3 text-muted-foreground">
                       {new Date(d.createdAt).toLocaleString()}
                     </td>
