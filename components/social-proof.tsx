@@ -21,6 +21,14 @@ const recentDonors = [
   { name: 'CHRISTIANA EDIRIN YAVUNADU', amount: 10_000, time: '24/06/2026' },
   { name: 'ABOSEDE Lota Caldwell', amount: 300_000, time: '24/06/2026' },
   { name: 'Anonymous', amount: 50_000, time: '25/06/2026' },
+  { name: 'Anonymous', amount: 100_000, time: '21/06/2026' },
+  { name: 'Venture Garden Nigeria Limited', amount: 479_500, time: '21/06/2026' },
+  { name: 'Anonymous', amount: 50_000, time: '21/06/2026' },
+  { name: 'Anonymous', amount: 5_000, time: '25/06/2026' },
+  { name: 'Anonymous', amount: 5_000, time: '27/06/2026' },
+  { name: 'Lagos Council of Busy Bees', amount: 100_000, time: '26/06/2026' },
+  { name: 'Interlinks Nig Ltd', amount: 500_000, time: '24/06/2026' },
+  { name: 'Musibau Animashaun', amount: 200_000, time: '26/06/2026' },
 ]
 
 export function SocialProof() {
