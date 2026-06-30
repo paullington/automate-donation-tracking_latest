@@ -29,6 +29,9 @@ const recentDonors = [
   { name: 'Lagos Council of Busy Bees', amount: 100_000, time: '26/06/2026' },
   { name: 'Interlinks Nig Ltd', amount: 500_000, time: '24/06/2026' },
   { name: 'Musibau Animashaun', amount: 200_000, time: '26/06/2026' },
+  { name: ' Omoh.G', amount: 150_000, time: '29/06/2026' },
+  { name: 'Anonymous', amount: 100_000, time: '29/06/2026' },
+  { name: 'Anonymous', amount: 50_000, time: '29/06/2026' },
 ]
 
 export function SocialProof() {
