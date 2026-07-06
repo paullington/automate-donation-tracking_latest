@@ -36,6 +36,10 @@ const recentDonors = [
   { name: 'Tolu Edewusi', amount: 200_000, time: '29/06/2026' },
   { name: ' Okubanjo Ismail Babatunde', amount: 50_000, time: '2/07/2026' },
   { name: 'Anonymous', amount: 50_000, time: '2/07/2026' },
+  { name: ' Media Sales Africa', amount: 100_000, time: '2/07/2026' },
+  { name: 'Ekudayo Joseph', amount: 501_875, time: '1/07/2026' },
+  { name: 'Nala Payment', amount: 183_144, time: '1/07/2026' },
+  { name: 'Tayo Ola', amount: 20_000, time: '5/07/2026' },
 ]
 
 export function SocialProof() {
