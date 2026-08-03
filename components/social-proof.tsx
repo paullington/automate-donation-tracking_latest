@@ -48,6 +48,7 @@ const recentDonors = [
   { name: ' Chike Oguamanam', amount: 350_000, time: '14/07/2026' },
   { name: ' Anonymous', amount: 30_000, time: '17/07/2026' },
   { name: ' Anonymous', amount: 100_000, time: '23/07/2026' },
+  { name: ' Anonymous', amount: 3_000, time: '30/07/2026' },
 ]
 
 export function SocialProof() {
