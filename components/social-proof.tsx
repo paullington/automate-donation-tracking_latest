@@ -49,6 +49,11 @@ const recentDonors = [
   { name: ' Anonymous', amount: 30_000, time: '17/07/2026' },
   { name: ' Anonymous', amount: 100_000, time: '23/07/2026' },
   { name: ' Anonymous', amount: 3_000, time: '30/07/2026' },
+  { name: ' Anonymous', amount: 300_000, time: '28/07/2026' },
+  { name: ' 2010 Civil Servant Employees', amount: 2_050_000, time: '29/07/2026' },
+  { name: ' Anonymous', amount: 310_000, time: '3/08/2026' },
+  { name: ' Anonymous', amount: 100_000, time: '4/08/2026' },
+  { name: ' Anonymous', amount: 50_000, time: '6/08/2026' },
 ]
 
 export function SocialProof() {
